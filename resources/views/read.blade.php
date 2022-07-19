@@ -9,34 +9,34 @@
     <title>Read Blog</title>
 </head>
 <body>
-{{--    <div class="container">--}}
-{{--        <div class="row">--}}
-{{--            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">--}}
-{{--                <div class="card" style="width: 18rem; margin-bottom: 15px">--}}
-{{--                    <img src="/storage/blogImages/{{$blogImage}}" alt="nothing" height="150" width="150">--}}
-{{--                    <div class="card-body">--}}
-{{--                        <button type="" class="btn btn-warning btn-sm">{{ $blogGenre }}</button>--}}
-{{--                        <h6 style="margin-top: 8px">{{ $blogTitle }}</h6>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">--}}
-{{--                <div>--}}
-{{--                    <img class="image-circle" src="" alt="nothing">--}}
-{{--                    <div>--}}
-{{--                        <p>*Username</p>--}}
-{{--                        <p>{{ $created_at }}</p>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--<div class="container-fluid">--}}
-{{--    <p>--}}
-{{--        {{ $blog->blogContent }}--}}
-{{--    </p>--}}
-{{--</div>--}}
-<h5>Here is where the blog content appears</h5>
+    <div class="container">
+        <div class="row">
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
+                <div class="card" style="width: 18rem; margin-bottom: 15px">
+                    <img src="/storage/blogImages/{{$blogImage}}" alt="nothing" height="150" width="150">
+                    <div class="card-body">
+                        <button type="" class="btn btn-warning btn-sm">{{ $blogGenre }}</button>
+                        <h6 style="margin-top: 8px">{{ $blogTitle }}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-xl-6 col-lg-6 col-md-6 col-sm-6 col-xl-6">
+                <div>
+                    <img class="image-circle" src="" alt="nothing">
+                    <div>
+                        <p>*Username</p>
+                        <p>{{ $created_at }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid">
+    <p>
+        {{ $blog->blogContent }}
+    </p>
+</div>
+
 
 </body>
 </html>

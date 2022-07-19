@@ -11,7 +11,7 @@ class PostsController extends Controller
         return view('post');
     }
     public function viewBlog(){
-        return view('blogs');
+        return view('blogs', ['blogs' => Blog::all()]);
     }
 
     public function post(Request $request){
@@ -22,18 +22,6 @@ class PostsController extends Controller
             'blogImage' => 'image|nullable',
         ]);
 
-//        $file = $request->hasFile('blogImage');
-//        if($file){
-//            $newBlogItem->blogImage = $request->file('blogImage');
-//            $filename = $request->file('blogImage')->getClientOriginalName();
-//            $filePath = $newBlogItem->blogImage->storeAs('images',$filename);
-////            dd(asset("/storage/app/").$filePath);
-//            $newBlogItem->blogTitle = $request->blogTitle;
-//            $newBlogItem->blogImage = $filePath;
-//            $newBlogItem->blogGenre = $request->blogGenre;
-//            $newBlogItem->blogContent = $request->blogContent;
-//            $newBlogItem->save();
-//        }
 
 //        handle file upload
         if($request->hasFile('blogImage')){
@@ -53,7 +41,7 @@ class PostsController extends Controller
 
             $newBlogItem = new Blog();
             $newBlogItem->blogTitle = $request->blogTitle;
-//            $newBlogItem->postedBy = auth()->user()->id;
+            $newBlogItem->postedBy = auth()->user()->id;
             $newBlogItem->blogImage = $filenameToStore;
             $newBlogItem->blogGenre = $request->blogGenre;
             $newBlogItem->blogContent = $request->blogContent;

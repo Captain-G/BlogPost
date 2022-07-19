@@ -15,4 +15,7 @@ class Blog extends Model
         'blogTitle',
         'blogContent',
     ];
+    public function user(){
+        return $this->belongsTo(User::class, 'postedBy');
+    }
 }
