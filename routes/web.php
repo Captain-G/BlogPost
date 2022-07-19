@@ -27,6 +27,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+//protecting routes so that you are only able to access them if you are signed in
 Route::group( ["middleware"=>['web', 'auth']], function (){
     Route::get('/postBlog',[PostsController::class, 'postBlog'])->name('postBlog');
     Route::post('/post', [PostsController::class, 'post'])->name('post');

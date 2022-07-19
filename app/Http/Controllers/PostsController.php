@@ -53,6 +53,7 @@ class PostsController extends Controller
         $newBlogItem = Blog::find($id);
         $newBlogItem->readsCounts = $newBlogItem->readsCounts + 1;
         $newBlogItem->save();
+        Blog::where('id', $id)->get();
         return view('read');
     }
 
