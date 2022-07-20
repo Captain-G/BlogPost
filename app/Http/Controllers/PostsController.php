@@ -42,6 +42,8 @@ class PostsController extends Controller
             $newBlogItem = new Blog();
             $newBlogItem->blogTitle = $request->blogTitle;
             $newBlogItem->postedBy = auth()->user()->id;
+//            $newBlogItem->user->posts = $newBlogItem->user->posts + 1;
+//            dd($newBlogItem->user->posts);
             $newBlogItem->blogImage = $filenameToStore;
             $newBlogItem->blogGenre = $request->blogGenre;
             $newBlogItem->blogContent = $request->blogContent;
@@ -53,8 +55,8 @@ class PostsController extends Controller
         $newBlogItem = Blog::find($id);
         $newBlogItem->readsCounts = $newBlogItem->readsCounts + 1;
         $newBlogItem->save();
-        Blog::where('id', $id)->get();
-        return view('read');
+        $newBlogItem = Blog::find($id);
+        return view('read',compact('newBlogItem'));
     }
 
     public function deleteBlog($id){
