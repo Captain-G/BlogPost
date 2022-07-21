@@ -27,6 +27,7 @@
         .card0:hover {
             background: url("/storage/blogImages/{{$newBlogItem->blogImage}}") right center no-repeat;
             background-size: 600px;
+            transition:2.5s;
         }
         .card1 {
             background: url("/storage/profilePhotos/{{  $newBlogItem->user->profilePhoto}}") center center no-repeat;
@@ -35,6 +36,7 @@
         .card1:hover {
             background: url("/storage/profilePhotos/{{  $newBlogItem->user->profilePhoto}}") left center no-repeat;
             background-size: 600px;
+            transition:2.5s;
         }
         {{--<img src="/storage/blogImages/{{$newBlogItem->blogImage}}" alt="nothing" style="box-shadow: 5px 10px 18px 1px royalblue;margin-left:100px;max-height: 450px; max-width:450px;height: auto;width: auto">--}}
     </style>
