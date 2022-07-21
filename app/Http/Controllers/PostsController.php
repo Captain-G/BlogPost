@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -40,10 +41,10 @@ class PostsController extends Controller
         }
 
             $newBlogItem = new Blog();
+//            $newUserItem = new User();
             $newBlogItem->blogTitle = $request->blogTitle;
             $newBlogItem->postedBy = auth()->user()->id;
-//            $newBlogItem->user->posts = $newBlogItem->user->posts + 1;
-//            dd($newBlogItem->user->posts);
+//            $newUserItem->user = $newUserItem->user + 1;
             $newBlogItem->blogImage = $filenameToStore;
             $newBlogItem->blogGenre = $request->blogGenre;
             $newBlogItem->blogContent = $request->blogContent;
