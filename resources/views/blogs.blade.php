@@ -10,13 +10,13 @@
     <style>
         .card:hover{
             background-color: #282727;
-            transition: 1.5s;
+            transition: 1.5s ease-in-out;
             color: white;
         }
         .card .image1 img:hover{
             width: 200px;
             height: 180px;
-            transition-duration: 1s;
+            transition: 1s ease-in-out;
         }
     </style>
 </head>

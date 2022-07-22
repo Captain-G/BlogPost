@@ -22,7 +22,7 @@ Route::get('/viewBlog',[PostsController::class, 'viewBlog'])->name('viewBlog');
 Route::get('/readBlog/{id}', [PostsController::class, 'readBlog'])->name('readBlog');
 Route::post('/readBlog/{id}', [PostsController::class, 'readBlog'])->name('readBlog');
 Route::post('/deleteBlog/{id}', [PostsController::class, 'deleteBlog'])->name('deleteBlog');
-
+Route::post('/addComment/{id}', [PostsController::class, 'addComment'])->name('addComment');
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

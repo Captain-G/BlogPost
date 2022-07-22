@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('blogGenre')->nullable();
             $table->string('blogTitle')->nullable();
             $table->text('blogContent')->nullable();
+//            $table->bigInteger('blogContent')->nullable();
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -64,5 +65,15 @@ class PostsController extends Controller
         $blogItem = Blog::find($id);
         $blogItem->delete();
         return view('blogs', ['blogs' => Blog::all()]);
+    }
+
+    public function addComment(Request $request, $id){
+        $request->validate([
+            'commentContent' => 'min:1',
+        ]);
+        $newComment = Blog::find($id);
+        $newComment->commentContent = $request->commentSection;
+        $newComment->save();
+        return redirect()->back();
     }
 }
