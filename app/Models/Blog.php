@@ -15,9 +15,11 @@ class Blog extends Model
         'blogTitle',
         'blogContent',
     ];
+
     public function user(){
         return $this->belongsTo(User::class, 'postedBy');
     }
+
     public function comment(){
         return $this->hasMany(Comment::class);
     }

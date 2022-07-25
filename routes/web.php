@@ -19,10 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/viewBlog',[PostsController::class, 'viewBlog'])->name('viewBlog');
-Route::get('/readBlog/{id}', [PostsController::class, 'readBlog'])->name('readBlog');
-Route::post('/readBlog/{id}', [PostsController::class, 'readBlog'])->name('readBlog');
-Route::post('/deleteBlog/{id}', [PostsController::class, 'deleteBlog'])->name('deleteBlog');
-Route::post('/addComment/{id}', [PostsController::class, 'addComment'])->name('addComment');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -32,4 +29,13 @@ Route::group( ["middleware"=>['web', 'auth']], function (){
     Route::get('/postBlog',[PostsController::class, 'postBlog'])->name('postBlog');
     Route::post('/post', [PostsController::class, 'post'])->name('post');
     Route::get('/post', [PostsController::class, 'post'])->name('post');
+    Route::get('/readBlog/{id}', [PostsController::class, 'readBlog'])->name('readBlog');
+    Route::post('/readBlog/{id}', [PostsController::class, 'readBlog'])->name('readBlog');
+    Route::post('/deleteBlog/{id}', [PostsController::class, 'deleteBlog'])->name('deleteBlog');
+    Route::get('/likeBlog/{id}', [PostsController::class, 'likeBlog'])->name('likeBlog');
+    Route::get('/followBlogger/{id}', [PostsController::class, 'followBlogger'])->name('followBlogger');
+    Route::get('/commentSection/{id}', [PostsController::class, 'commentSection'])->name('commentSection');
+    Route::post('/addComment/{id}', [PostsController::class, 'addComment'])->name('addComment');
+    Route::get('/likeComment/{id}', [PostsController::class, 'likeComment'])->name('likeComment');
+    Route::get('dislikeComment/{id}', [PostsController::class, 'dislikeComment'])->name('dislikeComment');
 });
