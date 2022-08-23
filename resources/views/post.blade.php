@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,7 +14,6 @@
 <body>
 
 <div class="container">
-    <h4 style="margin-bottom: 15px;margin-top: 10px">Blog details: </h4>
     <div class="card" style="box-shadow: 5px 10px 18px royalblue;">
         <div class="card-body">
             <form method="post" action="{{ route('post') }}" enctype="multipart/form-data">
@@ -60,3 +62,4 @@
 
 </body>
 </html>
+@endsection

@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!doctype html>
 <html lang="en">
 <head>
@@ -32,14 +35,6 @@
     </svg>
 </h3>
 <hr>
-
-{{--@foreach($newCommentSection as $comm)--}}
-{{--    <p class="">--}}
-{{--        {{$comm->commentContent}}--}}
-{{--    </p>--}}
-
-{{--@endforeach--}}
-
 
 <div class="container">
     @foreach($newCommentSection as $comm)
@@ -80,3 +75,4 @@
 </div>
 </body>
 </html>
+@endsection

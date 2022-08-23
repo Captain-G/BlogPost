@@ -40,18 +40,20 @@ class PostsController extends Controller
                 //upload the image
             $path = $request->file('blogImage')->storeAs('public/blogImages', $filenameToStore);
         }else{
-            $fileNameToStore = 'noimage.jpg';
+            $fileNameToStore = 'noImage.jpg';
         }
 
             $newBlogItem = new Blog();
-//            $newUserItem = new User();
-            $newBlogItem->blogTitle = $request->blogTitle;
             $newBlogItem->postedBy = auth()->user()->id;
             auth()->user()->posts = auth()->user()->posts + 1;
+//            dd($newBlogItem);
+//            auth()->user()->posts->push();
+
+            $newBlogItem->blogTitle = $request->blogTitle;
             $newBlogItem->blogImage = $filenameToStore;
             $newBlogItem->blogGenre = $request->blogGenre;
             $newBlogItem->blogContent = $request->blogContent;
-            $newBlogItem->push();
+            $newBlogItem->save();
 //            dd(auth()->user()->posts);
             return view('blogs', ['blogs' => Blog::all()]);
     }
@@ -117,6 +119,7 @@ class PostsController extends Controller
     public function likeComment($id){
         $newLikedComment = Comment::find($id);
         $newLikedComment->commentLikes = $newLikedComment->commentLikes + 1;
+        $newLikedComment->isLiked = true;
         $newLikedComment->save();
 //        dd($newLikedComment->commentLikes);
         return redirect()->back();
@@ -125,6 +128,7 @@ class PostsController extends Controller
     public function dislikeComment($id){
         $newDislikedComment = Comment::find($id);
         $newDislikedComment->commentDislikes = $newDislikedComment->commentDislikes + 1;
+        $newDislikedComment->isDisliked = true;
         $newDislikedComment->save();
 //        dd($newDislikedComment->commentDislikes);
         return redirect()->back();
